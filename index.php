@@ -6,7 +6,7 @@ include('Includes/navbar.php');
 <div class="headerwrap">
     <div class="container text-center headerpad">
         <h1 class="display-2">4 op 'n rij</h1>
-        <p class="lead">Speel tegen je vrienden</p>
+        <p class="lead">Speel tegen je vrienden<?php echo $_SESSION['username']; ?></p>
     </div>
 </div>
 
@@ -27,7 +27,7 @@ include('Includes/navbar.php');
                     <i class="fas fa-gamepad"></i>
 						<h3>Start met spelen!</h3>
 						<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet.</p>
-						<a href="#"></a>
+						<a href="pregame.php">Speel!</a>
 					</div>
 				</div>
 				<!-- /about -->

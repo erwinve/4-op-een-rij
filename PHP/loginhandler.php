@@ -7,12 +7,12 @@ if(isset($_POST['submit'])){
     $password = mysqli_real_escape_string($link, $_POST['password']);
 
     if(empty($username) || empty($password)){
-        header("Location: ../login.php");
+        header("Location: ../login.php?e");
         exit();
 
     }
     else{
-        $sql = "SELECT * FROM users WHERE uname='$username'";
+        $sql = "SELECT * FROM users WHERE uname ='$username'";
         $result = mysqli_query($link, $sql);
         $resultcheck = mysqli_num_rows($result);
 
@@ -38,7 +38,7 @@ if(isset($_POST['submit'])){
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['id'] = $row['ID'];
             
-                    header("Location: ../index.php");
+                    header("Location: ../index.php?123");
                     exit();
 
                     

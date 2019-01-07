@@ -46,7 +46,7 @@ if(isset($_POST['submit'])){
                         // user toevoegen aan de database
                         $sql = "INSERT INTO users (uname, email, pw) VALUES ('$username', '$email', '$hashedpassword');";
                         mysqli_query($link, $sql);
-                        header('location: ../index.php');
+                        header('location: ../login.php');
                         exit();
                         }
                     }

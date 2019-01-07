@@ -12,12 +12,30 @@
         <li class="nav-item active">
             <a class="nav-link text-white" href="index.php">Home <span class="sr-only">(current)</span></a>
         </li>
+        <?php
+        if(isset($_SESSION['loggedin'])){
+echo'
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' .
+$_SESSION["username"] .
+'
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+<a class="dropdown-item" href="index.php">Home</a>
+<a class="dropdown-item" href="PHP/logout.php">Uitloggen</a>
+</div>
+</li>';
+        }
+        else{
+            echo'
         <li class="nav-item">
             <a class="nav-link text-white" href="login.php">Inloggen</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white" href="register.php">Register</a>
-        </li>
+            <a class="nav-link text-white" href="register.php">Registreren</a>
+        </li>';
+        }
+        ?>
         </ul>
     </div>
     </nav>
