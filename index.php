@@ -6,7 +6,7 @@ include('Includes/navbar.php');
 <div class="headerwrap">
     <div class="container text-center headerpad">
         <h1 class="display-2">4 op 'n rij</h1>
-        <p class="lead">Speel tegen je vrienden<?php echo $_SESSION['username']; ?></p>
+        <p class="lead">Speel tegen je vrienden</p>
     </div>
 </div>
 

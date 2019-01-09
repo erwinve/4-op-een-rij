@@ -1,6 +1,4 @@
-body{
 
-}
 
 /* home */
 .headerwrap{
@@ -123,20 +121,18 @@ body{
 /* end login/register form */
 
 /* game */
+.board{
+  width: 550px;
+  height: 600px;
+  background-color: blue;
+}
 .emptyplace{
-  width: 100px;
-  height: 100px;
-  background-color: black;
+  width: 50px;
+  height: 50px;
+  background-color: white;
   border-radius: 50%;
   display: inline-block;
   margin: 2px;
 }
-.boardpinx{
-  width: 100px;
-  height: 100px;
-  background-color: black;
-  border-radius: 50%;
-  display: inline-block;
-  margin: 2px;
-  }
+
 /* end game */
