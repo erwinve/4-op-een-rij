@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_POST['submit'])){
+if(isset($_POST['submitbtn'])){
     include 'dbconnect.php';
 
     $username = mysqli_real_escape_string($link, $_POST['username']);

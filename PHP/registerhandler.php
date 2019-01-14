@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST['submit'])){
+if(isset($_POST['submitbtn'])){
     include_once 'dbconnect.php';
 
     //de variabelen defineren

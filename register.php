@@ -33,7 +33,7 @@ include('Includes/navbar.php');
 
         </div>
 
-        <button type="submit" name="submit" class="btn btn-primary">Login</button>
+        <button type="submit" name="submitbtn" class="btn btn-primary">Login</button>
 
     </form>
     </div>

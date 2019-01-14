@@ -1,4 +1,4 @@
 <?php
-$position = $_POST['circle'];
+$position = $_POST['inputcircle'];
 echo $position;
 ?>
