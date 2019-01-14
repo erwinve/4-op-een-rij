@@ -9,6 +9,7 @@ include('Includes/navbar.php');
     <?php
         include('PHP/gamescript.php');
     ?>
+        <input type='hidden' id='inputcircle' name='circleposition' value="NULL">
     </form>
 </div>
 
