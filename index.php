@@ -38,7 +38,7 @@ include('Includes/navbar.php');
                     <i class="fas fa-user-friends"></i>
 						<h3>Vrienden</h3>
 						<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet.</p>
-						<a href="#"></a>
+						<a href="friends.php">Vrienden</a>
 					</div>
 				</div>
 				<!-- /about -->
