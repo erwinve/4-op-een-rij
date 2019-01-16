@@ -64,17 +64,21 @@
 			$gamestring = $row['gamearray'];
 			}
 			
-			for ($i = 0; $i < $_SESSION['gamesize']; $i++)
-			{
-				array_push($gamefield, array());
-			}
-			print_r($gamefield[0]);
-			$i = $_SESSION['gamesize'];
-			while($i > 0){
-				for($i3 = 0; $i3 < $_SESSION['gamesize']; $i3++)
-				array_push($gamefield[$i], $gamestring[$i3]);
-			}
-				$i--;
+			$gamefield = json_decode($gamestring);
+			// for ($i = 0; $i < $_SESSION['gamesize']; $i++)
+			// {
+			// 	array_push($gamefield, array());
+			// }
+			// print_r($gamefield[0]);
+			// $i = $_SESSION['gamesize'];
+			// while($i > 0){
+			// 	for($i3 = 0; $i3 < $_SESSION['gamesize']; $i3++)
+			// 	array_push($gamefield[$i], $gamestring[$i3]);
+			// 	$i--;
+			// }
+			
+
+
 			}
 			
 			

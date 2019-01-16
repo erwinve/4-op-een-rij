@@ -38,11 +38,13 @@ if(!in_array("o" ,$_SESSION['gamefield'][0])){
     }
 }
 
-for($i = 0; $i < $_SESSION['gamesize']; $i++){
-    $gamestringpart = implode($_SESSION['gamefield'][$i]);
-    $gamestring .= $gamestringpart;
+$gamestring = json_encode($_SESSION['gamefield']);
 
-}
+// for($i = 0; $i < $_SESSION['gamesize']; $i++){
+//     $gamestringpart = implode($_SESSION['gamefield'][$i]);
+//     $gamestring .= $gamestringpart;
+
+// }
 
 
     $gamestring = mysqli_real_escape_string($link ,$gamestring);
