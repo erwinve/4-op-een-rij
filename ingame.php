@@ -2,6 +2,7 @@
 $pagetitle = "Ingame";
 include('Includes/head.php');
 include('Includes/navbar.php');
+include('PHP/requirelogin.php');
 ?>
 
 <div class="board">

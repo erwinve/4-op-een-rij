@@ -1,10 +1,12 @@
 <?php
 session_start();
 include('../PHP/dbconnect.php');
+// include('../Includes/functions.php');
 $position = $_POST['circleposition'];
 $gamestring = "";
-$row = $position[0];
-$column = $position[1];
+$posrow = substr($position, 0, 1);
+$poscol = substr($position, 1);
+$winarray = "q";
 
 
 $gameid = $_SESSION['gameid'];
@@ -29,28 +31,47 @@ if(!in_array("o" ,$_SESSION['gamefield'][0])){
 } else {
     //loop checks where to place a red or yellow pin, on y
     for($i = $_SESSION['gamesizefor']; $i > -1; $i--){
-        if ("o" == $_SESSION['gamefield'][$i][$column]){
-            $_SESSION['gamefield'][$i][$column] = $color;
+        if ("o" == $_SESSION['gamefield'][$i][$poscol]){
+            $_SESSION['gamefield'][$i][$poscol] = $color;
             break;
+        }
+        else{
+            // echo"dab";
         }
 
         
     }
-}
+    }
 
-$gamestring = json_encode($_SESSION['gamefield']);
-
-// for($i = 0; $i < $_SESSION['gamesize']; $i++){
-//     $gamestringpart = implode($_SESSION['gamefield'][$i]);
-//     $gamestring .= $gamestringpart;
-
-// }
-
-
+    $gamestring = json_encode($_SESSION['gamefield']);
     $gamestring = mysqli_real_escape_string($link ,$gamestring);
     $sql = "UPDATE games SET gamearray = '$gamestring', turn = '$chooseturn', turns = '$turns' WHERE gameid = '$gameid';";
     mysqli_query($link, $sql);
-    header("Location: ../ingame.php");
+
+    //check southwest
+    $i = 1;
+    $ir = $posrow;
+    $ic = $poscol;
+    while($i < 5){
+        if(($_SESSION['gamefield'][$ir][$ic] == $winarray) && ($i == 4)){
+            header("Location: ../index.php");
+            break;
+            
+        }
+        elseif($_SESSION['gamefield'][$ir][$ic] == $winarray){
+            $ir++;
+            $ic++;
+        }
+        else{
+            header("Location: ../ingame.php");
+            break;
+            
+        }
+        $i++;
+    }
+
+
+    
 
 
 

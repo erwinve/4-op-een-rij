@@ -1,11 +1,4 @@
 <?php
-// if (!isset($_SESSION['access']))
-// 	{
-// 	header('Location: ../pregame.php');
-// 	exit();
-// 	}
-//   else
-// 	{
 	include('dbconnect.php');
 	$gameid = $_SESSION['gameid'];
 	$sql = "SELECT * FROM games WHERE gameid = '$gameid';";
@@ -24,11 +17,6 @@
 
 		
 
-		// empty array for the gamefield
-
-
-
-		// if the size of the game is set, push the given ammount of rows in the empty array
 
 		if (isset($_POST['difficultysubmit']))
 			{
@@ -36,6 +24,8 @@
 				$gamesize = $_POST['difficultyselect'];
 				$_SESSION['gamesize'] = $gamesize;
 			// pushing empty cirlces
+			$sql = "UPDATE games SET gamesize = '$gamesize' WHERE gameid = '$gameid';";
+			mysqli_query($link, $sql);
 
 			for ($i = 0; $i < $_SESSION['gamesize']; $i++)
 			{
@@ -63,19 +53,10 @@
 			$player2 = $row['user2'];
 			$gamestring = $row['gamearray'];
 			}
+			$_SESSION['gamesizefor'] = $_SESSION['gamesize'];
+			$_SESSION['gamesizefor']--;
 			
 			$gamefield = json_decode($gamestring);
-			// for ($i = 0; $i < $_SESSION['gamesize']; $i++)
-			// {
-			// 	array_push($gamefield, array());
-			// }
-			// print_r($gamefield[0]);
-			// $i = $_SESSION['gamesize'];
-			// while($i > 0){
-			// 	for($i3 = 0; $i3 < $_SESSION['gamesize']; $i3++)
-			// 	array_push($gamefield[$i], $gamestring[$i3]);
-			// 	$i--;
-			// }
 			
 
 
@@ -100,7 +81,6 @@
 			}
 		}
 		$_SESSION['gamefield'] = $gamefield;
-    // }
 	
 
 

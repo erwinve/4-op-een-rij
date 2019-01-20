@@ -3,7 +3,7 @@ $pagetitle = "Pregame";
 include('Includes/head.php');
 include('PHP/dbconnect.php');
 include('Includes/navbar.php');
-include('Includes/functions.php');
+include('PHP/requirelogin.php');
 ?>
 
 <div class="headerwrap">
