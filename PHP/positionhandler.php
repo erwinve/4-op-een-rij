@@ -1,12 +1,17 @@
 <?php
 session_start();
 include('../PHP/dbconnect.php');
+include('../Includes/functions.php');
 // include('../Includes/functions.php');
 $position = $_POST['circleposition'];
 $gamestring = "";
 $posrow = substr($position, 0, 1);
 $poscol = substr($position, 1);
 $winarray = "q";
+
+$_SESSION['posrow'] = $posrow;
+$_SESSION['poscol'] = $poscol;
+
 
 
 $gameid = $_SESSION['gameid'];
@@ -48,28 +53,7 @@ if(!in_array("o" ,$_SESSION['gamefield'][0])){
     $sql = "UPDATE games SET gamearray = '$gamestring', turn = '$chooseturn', turns = '$turns' WHERE gameid = '$gameid';";
     mysqli_query($link, $sql);
 
-    //check southwest
-    $i = 1;
-    $ir = $posrow;
-    $ic = $poscol;
-    while($i < 5){
-        if(($_SESSION['gamefield'][$ir][$ic] == $winarray) && ($i == 4)){
-            header("Location: ../index.php");
-            break;
-            
-        }
-        elseif($_SESSION['gamefield'][$ir][$ic] == $winarray){
-            $ir++;
-            $ic++;
-        }
-        else{
-            header("Location: ../ingame.php");
-            break;
-            
-        }
-        $i++;
-    }
-
+    checkwin();
 
     
 
