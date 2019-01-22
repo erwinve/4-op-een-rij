@@ -1,0 +1,54 @@
+<?php
+include('dbconnect.php');
+
+if (!isset($_SESSION['gameid'])) {
+    header("location: ../index.php");
+    exit();
+} else {
+    $gameid = $_SESSION['gameid'];
+    
+    $gamefield = array();
+    
+    
+    
+    $sql         = "SELECT * FROM endgame WHERE endgameid = '$gameid';";
+    $result      = mysqli_query($link, $sql);
+    $resultcheck = mysqli_num_rows($result);
+    if ($row = mysqli_fetch_assoc($result)) {
+        $player1     = $row['user1'];
+        $player2     = $row['user2'];
+        $gamestring  = $row['gamearray'];
+        $player1name = $row['name1'];
+        $player2name = $row['name2'];
+    }
+    $_SESSION['gamesizefor'] = $_SESSION['gamesize'];
+    $_SESSION['gamesizefor']--;
+    $_SESSION['player1']     = $player1;
+    $_SESSION['player2']     = $player2;
+    $_SESSION['player1name'] = $player1name;
+    $_SESSION['player2name'] = $player2name;
+    
+    
+    $gamefield = json_decode($gamestring);
+    
+    
+    
+    
+    
+    
+    
+    // echo the two dimensional array
+    
+    
+    foreach ($gamefield as $key1 => $value1) {
+        foreach ($value1 as $key2 => $value2) {
+            
+            
+            echo "<div onClick='position(this.id)' id='" . $key1 . $key2 . "' class='" . $value2 . "'></div>";
+        }
+    }
+    $_SESSION['gamefield'] = $gamefield;
+    
+    
+}
+?>

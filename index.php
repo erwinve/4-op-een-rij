@@ -47,9 +47,9 @@ include('Includes/navbar.php');
 				<div class="col-md-4">
 					<div class="about">
                     <i class="fas fa-sign-in-alt"></i>
-						<h3>Inloggen</h3>
+						<h3>Profiel</h3>
 						<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet.</p>
-						<a href="#">Read more</a>
+						<a href="profile.php">Bekijk je profiel</a>
 					</div>
 				</div>
 				<!-- /about -->
